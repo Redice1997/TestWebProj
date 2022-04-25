@@ -1,13 +1,13 @@
 ﻿@model TestWebProj.Models.CurrencyModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Currency";
 }
 
-<h1>Details</h1>
+<h1>Currency</h1>
 
 <div>
-    <h4>Currency</h4>
+    <h4>@Html.DisplayFor(model => model.CharCode)</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">

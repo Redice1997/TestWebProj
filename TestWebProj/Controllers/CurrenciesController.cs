@@ -8,10 +8,10 @@ using TestWebProj.Models;
 
 namespace TestWebProj.Controllers
 {
-    public class ValuteController : Controller
+    public class CurrenciesController : Controller
     {
         private readonly IMemoryCache memoryCache;
-        public ValuteController(IMemoryCache memoryCache)
+        public CurrenciesController(IMemoryCache memoryCache)
         {
             this.memoryCache = memoryCache;
         }
@@ -22,7 +22,7 @@ namespace TestWebProj.Controllers
 
             return View(currencies);
         }
-        public IActionResult Details(string Id)
+        public IActionResult Currency(string Id)
         {
             if (!memoryCache.TryGetValue("key_currency", out List<CurrencyModel> currencies))
                 throw new Exception("Ошибка получения данных");

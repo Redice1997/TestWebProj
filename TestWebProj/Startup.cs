@@ -49,7 +49,7 @@ namespace TestWebProj
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Valute}/{action=Index}/{id?}");
+                    pattern: "{controller=Currencies}/{action=Index}/{id?}");
             });
         }
     }
