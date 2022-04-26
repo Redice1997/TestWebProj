@@ -15,12 +15,27 @@ namespace TestWebProj.Controllers
         {
             this.memoryCache = memoryCache;
         }
-        public IActionResult Index()
+        public IActionResult Index(int pg = 1)
         {
             if (!memoryCache.TryGetValue("key_currency", out List<CurrencyModel> currencies))
                 throw new Exception("Ошибка получения данных");
 
-            return View(currencies);
+            const int pageSize = 4;
+            if (pg < 1) pg = 1;
+
+            int recsCount = currencies.Count();
+
+            var pager = new PagerModel(recsCount, pg, pageSize);
+
+            int recSkip = (pg - 1) * pageSize;
+
+            var data = currencies.Skip(recSkip).Take(pager.PageSize);
+
+            this.ViewBag.Pager = pager;
+
+            //return View(currencies);
+
+            return View(data);
         }
         public IActionResult Currency(string Id)
         {
