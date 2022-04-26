@@ -17,11 +17,11 @@ namespace TestWebProj.Controllers
         }
         public IActionResult Index(int pg = 1)
         {
-            if (!memoryCache.TryGetValue("key_currency", out List<CurrencyModel> currencies))
+            if (!memoryCache.TryGetValue("key_currencies", out List<CurrencyModel> currencies))
                 throw new Exception("Ошибка получения данных");
 
             const int pageSize = 4;
-            if (pg < 1) pg = 1;
+            if (pg < 1) pg = 1;            
 
             int recsCount = currencies.Count();
 
@@ -39,9 +39,9 @@ namespace TestWebProj.Controllers
         }
         public IActionResult Currency(string Id)
         {
-            if (!memoryCache.TryGetValue("key_currency", out List<CurrencyModel> currencies))
+            if (!memoryCache.TryGetValue("key_currencies", out List<CurrencyModel> currencies))
                 throw new Exception("Ошибка получения данных");
-            CurrencyModel currency = currencies.Single(c => c.CharCode == Id);
+            CurrencyModel currency = currencies.SingleOrDefault(c => c.CharCode.ToUpper() == Id.ToUpper());
 
             return View(currency);
         }

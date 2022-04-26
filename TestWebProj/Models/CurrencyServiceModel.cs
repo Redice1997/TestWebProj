@@ -60,7 +60,7 @@ namespace TestWebProj.Models
                         }                        
                     }
 
-                    memoryCache.Set("key_currency", currencies, TimeSpan.FromMinutes(120));
+                    memoryCache.Set("key_currencies", currencies, TimeSpan.FromMinutes(120));
                 }
 
                 await Task.Delay(3600000);

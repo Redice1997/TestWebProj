@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<TestWebProj.Models.CurrencyModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Currencies";
 
     PagerModel pager = new PagerModel();
 
@@ -40,10 +40,10 @@
 
             @if (pager.CurrentPage < pager.TotalPages)
             {
-                <li class="page-item">
+                <li>
                     <a class="page-link" asp-controller="Currencies" asp-action="Index" asp-route-pg="@(pager.CurrentPage + 1)">Next</a>
                 </li>
-                <li>
+                <li  class="page-item">
                     <a class="page-link" asp-controller="Currencies" asp-action="Index" asp-route-pg="@(pager.TotalPages)">Last</a>
                 </li>
             }
