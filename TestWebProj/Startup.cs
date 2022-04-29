@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TestWebProj.Models;
+using TestWebProj.Services;
 
 namespace TestWebProj
 {
@@ -23,7 +24,7 @@ namespace TestWebProj
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHostedService<CurrencyServiceModel>();
+            services.AddHostedService<DataService>();
             services.AddMemoryCache();
             services.AddControllersWithViews();
         }

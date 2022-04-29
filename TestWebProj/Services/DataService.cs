@@ -9,9 +9,9 @@ using System.Net;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using testAPIproj.Models;
+using TestWebProj.Models;
 
-namespace testAPIproj.Services
+namespace TestWebProj.Services
 {
     public class DataService : BackgroundService
     {
@@ -48,7 +48,7 @@ namespace testAPIproj.Services
                     catch (Exception e)
                     {
                         Console.WriteLine(e);
-                    }                    
+                    }
 
                     memoryCache.Set("key_currencies", currencies, TimeSpan.FromMinutes(120));
                 }

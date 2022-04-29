@@ -38,6 +38,7 @@ namespace testAPIproj.Controllers
         {
             if (!memoryCache.TryGetValue("key_currencies", out List<CurrencyModel> currencies))
                 throw new Exception("Ошибка получения данных");
+
             CurrencyModel currency = currencies.SingleOrDefault(c => c.CharCode.ToUpper() == Id.ToUpper());
 
             return currency == null ? 0m : (currency.Value / currency.Nominal);
